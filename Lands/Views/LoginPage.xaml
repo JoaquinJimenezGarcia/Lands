@@ -5,6 +5,7 @@
     x:Class="Lands.Views.LoginPage"
     Title="Login">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout Padding="10, 20, 10, 5">
             <Label
                 HorizontalOptions="Center"
@@ -93,5 +94,6 @@
                 </Image>
             </StackLayout>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
