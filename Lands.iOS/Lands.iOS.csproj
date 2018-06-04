@@ -158,5 +158,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\globe.png" />
+    <BundleResource Include="Resources\fbBtn.png" />
+    <BundleResource Include="Resources\twBtn.png" />
+    <BundleResource Include="Resources\igBtn.png" />
   </ItemGroup>
 </Project>
