@@ -6,95 +6,102 @@
     BindingContext="{Binding Main, Source={StaticResource Locator}}"
     Title="Login">
     <ContentPage.Content>
-        <ScrollView>
-        <StackLayout Padding="10, 20, 10, 5">
-            <Label
-                HorizontalOptions="Center"
-                FontSize="Large"
-                FontAttributes="Bold"
-                Text="Lands">
-            </Label>
-            <Image 
-                Source="globe"
-                WidthRequest="200">
-            </Image>
-            <Grid Margin="0,20">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="2*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                 <Label
-                    VerticalOptions="Center"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Text="Email">
-                </Label>
-                 <Entry
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Keyboard="Email"
-                    Placeholder="Enter your email">
-                </Entry>
+        <ScrollView BindingContext="{Binding Login}">
+            <StackLayout Padding="10, 20, 10, 5">
                 <Label
-                    VerticalOptions="Center"
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Text="Password">
+                    HorizontalOptions="Center"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    Text="Lands">
                 </Label>
-                <Entry
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    IsPassword="true"
-                    Placeholder="Enter your password">
-                </Entry>
-            </Grid>
-            <StackLayout
-                Orientation="Horizontal">
-                <Label
-                    HorizontalOptions="StartAndExpand"
+                <Image 
+                    Source="globe"
+                    WidthRequest="200">
+                </Image>
+                <Grid Margin="0,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                     <Label
+                        VerticalOptions="Center"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Email">
+                    </Label>
+                     <Entry
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Keyboard="Email"
+                        Text="{Binding Email, Mode=TwoWay}"
+                        Placeholder="Enter your email">
+                    </Entry>
+                    <Label
+                        VerticalOptions="Center"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="Password">
+                    </Label>
+                    <Entry
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        IsPassword="true"
+                        Text="{Binding Password, Mode=TwoWay}"
+                        Placeholder="Enter your password">
+                    </Entry>
+                </Grid>
+                <StackLayout
+                    Orientation="Horizontal">
+                    <Label
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="Center"
+                        Text="Remember me in this device">
+                    </Label>
+                    <Switch
+                        IsToggled="{Binding IsRemembered, Mode=TwoWay}"
+                        HorizontalOptions="End">
+                    </Switch>
+                </StackLayout>
+                <ActivityIndicator
                     VerticalOptions="Center"
-                    Text="Remember me in this device">
-                </Label>
-                <Switch
-                    HorizontalOptions="End">
-                </Switch>
+                    IsRunning="{Binding IsRunning, Mode=TwoWay}">
+                </ActivityIndicator>
+                <StackLayout
+                    Margin="40, 0">
+                    <Button
+                        Command="{Binding LoginCommand}"
+                        Text="Login"
+                        BackgroundColor="Navy"
+                        TextColor="Silver"
+                        BorderRadius="23"
+                        HeightRequest="46">
+                    </Button>
+                    <Button
+                        Command="{Binding RegisterCommand}"
+                        Text="Register"
+                        BackgroundColor="Purple"
+                        TextColor="Silver"
+                        BorderRadius="23"
+                        HeightRequest="46">
+                    </Button>
+                </StackLayout>
+                <StackLayout
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal">
+                    <Image 
+                        Source="fbBtn"
+                        WidthRequest="50">
+                    </Image>
+                    <Image 
+                        Source="twBtn"
+                        WidthRequest="50">
+                    </Image>
+                    <Image 
+                        Source="igBtn"
+                        WidthRequest="55">
+                    </Image>
+                </StackLayout>
             </StackLayout>
-            <ActivityIndicator>
-            </ActivityIndicator>
-            <StackLayout
-                Margin="40, 0">
-                <Button
-                    Text="Login"
-                    BackgroundColor="Navy"
-                    TextColor="Silver"
-                    BorderRadius="23"
-                    HeightRequest="46">
-                </Button>
-                <Button
-                    Text="Register"
-                    BackgroundColor="Purple"
-                    TextColor="Silver"
-                    BorderRadius="23"
-                    HeightRequest="46">
-                </Button>
-            </StackLayout>
-            <StackLayout
-                HorizontalOptions="Center"
-                Orientation="Horizontal">
-                <Image 
-                    Source="fbBtn"
-                    WidthRequest="50">
-                </Image>
-                <Image 
-                    Source="twBtn"
-                    WidthRequest="50">
-                </Image>
-                <Image 
-                    Source="igBtn"
-                    WidthRequest="55">
-                </Image>
-            </StackLayout>
-        </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
