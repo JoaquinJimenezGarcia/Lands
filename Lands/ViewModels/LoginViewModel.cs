@@ -1,16 +1,11 @@
-﻿using System.ComponentModel;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using Xamarin.Forms;
 
 namespace Lands.ViewModels
 {
-    public class LoginViewModel : INotifyPropertyChanged
+    public class LoginViewModel : BaseViewModel
     {
-        #region Events
-        public event PropertyChangedEventHandler PropertyChanged;
-        #endregion
-
         #region Attributes
         private string email;
         private string password;
@@ -21,77 +16,28 @@ namespace Lands.ViewModels
         #region Properties
         public string Email 
         { 
-            get 
-            {
-                return email;
-            } 
-            set
-            {
-                if (this.email != value)
-                {
-                    this.email = value;
-                    PropertyChanged?.Invoke(
-                    this,
-                        new PropertyChangedEventArgs(nameof(this.Email)));
-
-                }
-            }
+            get { return this.email; }
+            set { SetValue(ref this.email, value); }
         }
         
         public string Password 
         { 
-            get
-            {
-                return password;
-            }
-
-            set
-            {
-                if (this.password != value)
-                {
-                    this.password = value;
-                    PropertyChanged?.Invoke(
-                    this,
-                        new PropertyChangedEventArgs(nameof(this.Password)));
-                }
-            }
+            get { return this.password; }
+            set { SetValue(ref this.password, value); }
         }
+
         public bool IsRunning 
         {
-            get
-            {
-                return isRunning;
-            }
-
-            set
-            {
-                if (this.isRunning != value)
-                {
-                    this.isRunning = value;
-                    PropertyChanged?.Invoke(
-                    this,
-                        new PropertyChangedEventArgs(nameof(this.IsRunning)));
-                }
-            }
+            get { return this.isRunning; }
+            set { SetValue(ref this.isRunning, value); }
         }
+
         public bool IsRemembered { get; set; }
+
         public bool IsEnabled 
         {
-            get
-            {
-                return isEnabled;
-            }
-
-            set
-            {
-                if (this.isEnabled != value)
-                {
-                    this.isEnabled = value;
-                    PropertyChanged?.Invoke(
-                    this,
-                        new PropertyChangedEventArgs(nameof(this.IsEnabled)));
-                }
-            }    
+            get { return this.isEnabled; }
+            set { SetValue(ref this.isEnabled, value); }   
         }
         #endregion
 
@@ -144,6 +90,9 @@ namespace Lands.ViewModels
                     "Error",
                     "Email or password incorrect.",
                     "Accept");
+
+                this.IsEnabled = true;
+                this.IsRunning = false;
                 
                 this.Password = string.Empty;
                 this.Email = string.Empty;
