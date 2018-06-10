@@ -27,18 +27,18 @@
 
             if (!isReachable) 
             {
-                return new Response 
+                return new Response
                 {
                     IsSuccess = false,
                     Message = "The network is no reachable."
-                }
+                };
             }
 
             return new Response
             {
                 IsSuccess = true,
                 Message = "Connected!"
-            }
+            };
         }
     }
 }
