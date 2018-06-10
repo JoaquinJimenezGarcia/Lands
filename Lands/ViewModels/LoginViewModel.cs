@@ -1,9 +1,10 @@
-﻿using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
-using Xamarin.Forms;
-
-namespace Lands.ViewModels
+﻿namespace Lands.ViewModels
 {
+    using System.Windows.Input;
+    using GalaSoft.MvvmLight.Command;
+    using Xamarin.Forms;
+    using Views;
+
     public class LoginViewModel : BaseViewModel
     {
         #region Attributes
@@ -100,13 +101,14 @@ namespace Lands.ViewModels
                 return;
             }
 
-            await Application.Current.MainPage.DisplayAlert(
-                    "Ok",
-                    "Logged in!.",
-                    "Accept");
-
             this.IsEnabled = true;
             this.IsRunning = false;
+
+            this.Email = string.Empty;
+            this.Password = string.Empty;
+
+            MainViewModel.GetInstance().Lands = new LandsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
         }
 
         private async void Register()
